@@ -24,12 +24,10 @@ db.soal = require('./soal')(sequelize, Sequelize);
 db.category = require('./category')(sequelize, Sequelize);
 
 db.category.hasMany(db.soal, {
-    foreignKey: 'id',
-    as: 'soals'
+    foreignKey: 'categoryId',
 })
 db.soal.belongsTo(db.category, {
-    foreignKey: 'id',
-    as: 'categories'
+    foreignKey: 'categoryId',
 })
 
 module.exports = db;

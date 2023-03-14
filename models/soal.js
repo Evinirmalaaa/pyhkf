@@ -37,11 +37,7 @@ module.exports = (sequelize, Sequelize) => {
         },
         categoryId: {
             type: Sequelize.INTEGER,
-            allowNull: false,
-            references: {         // User belongsTo Company 1:1
-                model: 'categories',
-                key: 'id'
-            }
+            allowNull: false
         }
     });
     return Soal;

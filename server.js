@@ -7,6 +7,7 @@ const fs = require('fs');
 const multer = require("multer");
 const soalRouter = require('./router/soal')
 const categoryRouter = require('./router/category')
+const jobsheetRouter = require('./router/jobsheet')
 
 app.use(cors());
 app.use(express.json());
@@ -16,11 +17,12 @@ const db = require('./models');
 const quiz = require('./models/soal');
 db.sequelize.sync()
 
-app.get('/', (res, req) => {
+app.get('/', (req, res) => {
     res.send('hello world')
 })
 app.use('/api/images', express.static('images'));
 app.use('/api/soal', soalRouter)
+app.use('/api/jobsheet', jobsheetRouter)
 app.use('/api/category', categoryRouter)
 
 app.listen(port, () => console.log(`App listening on port http://localhost:${port}!`))
